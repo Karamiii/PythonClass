@@ -10,7 +10,7 @@ Ohjelman tarkoitus on laskea suurin inflaation muutos käyttäjän syötteiden v
 
 def main():
 
-    # Alustetaan paikalliset ja globaalit muuttujat.
+    # initialize local and global variables.
 
     ExitFlag = True
     newMonth = 0
@@ -19,9 +19,9 @@ def main():
     inflationRate = -500
     MINIMUM_MONTHS = 2
     
-    # Aloitetaan while looppi joka päättyy, kun käyttäjä antaa tyhjän syötteen.
-    # Loopissa otetaan käyttäjältä syötteitä, joista lasketaan suurin inflaation muutos.
-    
+    # Begin a while loop that ends, when the user gives and empty string as an input (Enter).
+    # Loop collects user inputs, from which the program calculates the biggest inflation rate.
+
     while ExitFlag:
         previousMonth = newMonth
         UserInput = input(f"Enter inflation rate for month {monthCounter + 1}: ")
@@ -29,7 +29,9 @@ def main():
         if UserInput == '':
             ExitFlag = False 
 
-            # Tyhjän syötteen tullessa ohjelma tarkistaa, että onko syötetty vähintään 2 lukua. Ohjelma poistuu virhekoodilla 1, jos ehto ei täyty.
+            # When the program recieves an empty input, program checks whether or not user has provided at least 2 valuas prior to the empty input.
+            # If the condition is not met, the porgram exits with error code 1.
+
             if monthCounter < MINIMUM_MONTHS:
                 print("Error: at least 2 monthly inflation rates must be entered.")
                 exit(1)            
@@ -37,8 +39,8 @@ def main():
              monthCounter += 1
              newMonth = float(UserInput)
 
-        # Lasketaan kahden kuukauden välinen inflaatio. Jos inflaatio on suurempi kuin edellisten kuukausien laskettu arvo,
-        # niin tulos päivitetään.
+        # Calculate inflation rate between 2 months. If the inflation rate is bigger than the calculated value of
+        # the previous months, the inflation rate is the updated with the latest value
         if monthCounter >= 2:
             if (previousMonth > newMonth) and (newMonth - previousMonth) > inflationRate:
                 inflationRate = (newMonth - previousMonth)
