@@ -8,6 +8,7 @@ Ohjelman tarkoitus on laskea suurin inflaation muutos käyttäjän syötteiden v
 
 """
 
+
 def main():
 
     # initialize local and global variables.
@@ -16,7 +17,7 @@ def main():
     newMonth = 0
     monthCounter = 0
     previousMonth = 0
-    inflationRate = -500
+    inflationRate = -5000
     MINIMUM_MONTHS = 2
     
     # Begin a while loop that ends, when the user gives and empty string as an input (Enter).
@@ -27,14 +28,16 @@ def main():
         UserInput = input(f"Enter inflation rate for month {monthCounter + 1}: ")
         
         if UserInput == '':
-            ExitFlag = False 
-
+            ExitFlag = False
             # When the program recieves an empty input, program checks whether or not user has provided at least 2 valuas prior to the empty input.
-            # If the condition is not met, the porgram exits with error code 1.
+            # If the condition is not met, porgram exits.
+            # If the condition is met, program breaks out of the loop and presents the results.
 
             if monthCounter < MINIMUM_MONTHS:
                 print("Error: at least 2 monthly inflation rates must be entered.")
-                exit(1)            
+                return
+            else:
+                break    
         else:
              monthCounter += 1
              newMonth = float(UserInput)
@@ -42,7 +45,7 @@ def main():
         # Calculate inflation rate between 2 months. If the inflation rate is bigger than the calculated value of
         # the previous months, the inflation rate is the updated with the latest value
         if monthCounter >= 2:
-            if (previousMonth > newMonth) and (newMonth - previousMonth) > inflationRate:
+            if (previousMonth >= newMonth) and (newMonth - previousMonth) > inflationRate:
                 inflationRate = (newMonth - previousMonth)
             elif (newMonth > previousMonth) and (newMonth - previousMonth) > inflationRate:
                 inflationRate = (newMonth - previousMonth)   
