@@ -9,9 +9,10 @@ def is_the_list_in_order(array):
     Funktio katsoo onko lista suuruusjärjestyksessä ja silleensä ja silleen juu
     """
 
+
     newArray = sorted(array)
 
-    
+        
 
     if newArray == array:
         return True
