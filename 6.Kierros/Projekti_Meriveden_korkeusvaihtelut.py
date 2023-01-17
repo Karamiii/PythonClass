@@ -4,8 +4,10 @@ Tekijä: Karam Chafqane karam.chafqane@tuni.fi (TAMK ristiinopiskelu)
 Opiskelijanumero (TAMK): 2207055
 Opiskelijanumero (Yliopisto): 151552274
 
-Programs main purpose is to calculate altitude variation. Program calculates mean, median, deviation, minimum, maximum and variation,
-which it uses to calculate the previously mentioned deviation. Porgram recieves the values from user input.
+Programs main purpose is to calculate altitude variation. Program calculates
+mean, median, deviation, minimum, maximum and variation,
+which it uses to calculate the previously mentioned deviation.
+Porgram recieves the values from user input.
 
 """
 # Import sqrt from math library
@@ -13,8 +15,9 @@ from math import sqrt
 
 def save_input():
     """
-    Function fills a list with user input. When user is done filling the list, function will send 
-    the filled list to "calculate_Results()" function for calculations.
+    Function fills a list with user input. When user is done filling the list,
+    function will send the filled list to "calculate_Results()" function for
+    calculations.
     """
 
     seaWaterLevels = []
@@ -26,7 +29,7 @@ def save_input():
         else:
             break
 
-    # Check whether or not user has provided at least 2 values
+    # Check whether user has provided at least 2 values
     if len(seaWaterLevels) < 2:
         Error_Message()
     else:
@@ -41,8 +44,10 @@ def Error_Message():
 
 def caculate_Results(seaWaterlevels):
     """
-    Function reseaves user filled list as an parameter, which it uses to calculate values in seperate functions.
-    At the end, function sends all the calculated values to be presented in a seperate function.
+    Function receives user filled list as a parameter, which it uses to
+    calculate values in separate functions.
+    At the end, function sends all the calculated values to be presented in
+    a separate function.
 
     """
     # Calculate mean of the values provided
@@ -55,7 +60,7 @@ def caculate_Results(seaWaterlevels):
     maxValue = float(max(seaWaterlevels))
     minValue = float(min(seaWaterlevels))
 
-     # Calculate the standard deviation of the provided values
+    # Calculate the standard deviation of the provided values
     standardDeviation = calculate_standard_deviation(seaWaterlevels, mean)
 
     # Send calculated values to be presented
@@ -63,8 +68,10 @@ def caculate_Results(seaWaterlevels):
 
 def calculate_standard_deviation(seaWaterlevels, mean):
     """
-    Function reseves a user filled list and previously calculated mean, which it uses to calculate the variation of the provided values.
-    After it has calculated the varition, it uses the result to calculate standard deviation, which it returns back to where it was
+    Function receives a user filled list and previously calculated mean, which
+    it uses to calculate the variation of the provided values.
+    After it has calculated the variation, it uses the result to calculate
+    standard deviation, which it returns, back to where it was
     called from.
     """
 
@@ -81,7 +88,8 @@ def calculate_standard_deviation(seaWaterlevels, mean):
 
 def calculate_mean(seaWaterlevels):
     """
-    Function reseves user filled list and calculates the mean of the provided values.
+    Function receives user filled list and calculates the mean of
+    the provided values.
     Function returns calculated mean value back to where it was called from.
     """
     mean = 0
@@ -92,7 +100,8 @@ def calculate_mean(seaWaterlevels):
 
 def calculate_median(seaWaterlevels):
     """
-    Function reseves user filled list and calculates the median of the provided values.
+    Function receives user filled list and calculates the median of
+    the provided values.
     Function returns calculated median value back to where it was called from.
     """
     median = 0
@@ -111,8 +120,8 @@ def calculate_median(seaWaterlevels):
 
 def present_results(minValue, maxValue, median, mean, deviation):
     """
-    Function recieves all the calculated values as parameters and presents them to the user.
-    This is where the program finishes.
+    Function receives all the calculated values as parameters and presents them
+    to the user. This is where the program finishes.
     """
     print(f"Minimum:   {minValue:.2f} cm")
     print(f"Maximum:   {maxValue:.2f} cm")
