@@ -36,6 +36,7 @@ def main():
             spanishWord = getInput("Give the word to be added in Spanish: ")
 
             english_spanish[englishWord] = spanishWord
+            spanish_english[spanishWord] = englishWord
 
             print("Dictionary contents:")
             print(", ".join(sorted(english_spanish)))
@@ -51,9 +52,15 @@ def main():
 
         elif command == "P":
 
+            print("\nEnglish-Spanish")
             for item in sorted(english_spanish):
                 print(f"{item} {english_spanish[item]}")
 
+            print("\nSpanish-English")
+
+            for item in sorted(spanish_english):
+                print(f"{item} {spanish_english[item]}")
+            print()
 
         elif command == "T":
 
